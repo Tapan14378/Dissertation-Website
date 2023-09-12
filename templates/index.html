@@ -1,0 +1,105 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Sign Up</title>-->
+
+<!--    &lt;!&ndash; Font Icon &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="static/fonts/material-icon/css/material-design-iconic-font.min.css">-->
+
+<!--    &lt;!&ndash; Main css &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <div class="main">-->
+
+<!--        &lt;!&ndash; Sign up form &ndash;&gt;-->
+<!--        <section class="signup">-->
+<!--            <div class="container">-->
+<!--                <div class="signup-content">-->
+<!--                    <div class="signup-form">-->
+<!--                        <h2 class="form-title">Sign up</h2>-->
+<!--                        <form method="POST" class="register-form" id="register-form" action="{{ url_for('auth.signup') }}">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>-->
+<!--                                <input type="text" name="name" id="name" placeholder="Your Name"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="email"><i class="zmdi zmdi-email"></i></label>-->
+<!--                                <input type="email" name="email" id="email" placeholder="Your Email"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
+<!--                                <input type="password" name="password" id="pass" placeholder="Password"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />-->
+<!--                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>-->
+<!--                            </div>-->
+<!--                            <div class="form-group form-button">-->
+<!--                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                    <div class="signup-image">-->
+<!--                        <figure><img src="static/images/signup-image.jpg" alt="sing up image"></figure>-->
+<!--                        <a href="{{ url_for('auth.login') }}" class="register-form">I am already member</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--        &lt;!&ndash; Sing in  Form &ndash;&gt;-->
+<!--        <section class="sign-in">-->
+<!--            <div class="container">-->
+<!--                <div class="signin-content">-->
+<!--                    <div class="signin-image">-->
+<!--                        <figure><img src="static/images/signin-image.jpg" alt="sing up image"></figure>-->
+<!--                        <a href="#" class="signup-image-link">Create an account</a>-->
+<!--                    </div>-->
+
+<!--                    <div class="signin-form">-->
+<!--                        <h2 class="form-title">Login</h2>-->
+<!--                        <form method="POST" class="register-form" id="Log In" action="{{ url_for('auth.login') }}">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>-->
+<!--                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />-->
+<!--                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>-->
+<!--                            </div>-->
+<!--                            <div class="form-group form-button">-->
+<!--                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+
+<!--    </div>-->
+
+<!--    &lt;!&ndash; JS &ndash;&gt;-->
+<!--    <script src="static/vendor/jquery/jquery.min.js"></script>-->
+<!--    <script src="static/js/main.js"></script>-->
+
+<!--<script>-->
+<!--$(document).ready(function(){-->
+<!--    $(".signup-image-link").click(function(){-->
+<!--        $(".sign-in").show();-->
+<!--        $(".signup").hide();-->
+<!--    });-->
+<!--    $(".form-title").click(function(){-->
+<!--        $(".signup").show();-->
+<!--        $(".sign-in").hide();-->
+<!--    });-->
+<!--});-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/button1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dash.css') }}">
+    <link rel="stylesheet" type="text/js" href="{{ url_for('static', filename='js/dash.js') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/button2.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Maven+Pro:500' rel='stylesheet' type='text/css'>
+    <style>
+body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #content-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Additional CSS to center the buttons horizontally */
+        #content-container button {
+            margin-top: 10px;
+        }
+        section {
+    float: left;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 5px 0px #333;
+    background: none; /* Updated: Set background to none */
+}
+
+
+        /* the important styles */
+        .arrow-wrap {
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: -25em;
+            margin-left: -5em;
+            background: #111;
+            width: 10em;
+            height: 10em;
+            padding: 4em 2em;
+            border-radius: 50%;
+            font-size: 0.5em;
+            display: block;
+            box-shadow: 0px 0px 5px 0px #333;
+        }
+
+        .arrow {
+            float: left;
+            position: relative;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 3em 3em 0 3em;
+            border-color: #ffffff transparent transparent transparent;
+            -webkit-transform: rotate(360deg);
+        }
+
+        .arrow:after {
+            content: '';
+            position: absolute;
+            top: -3.2em;
+            left: -3em;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 3em 3em 0 3em;
+            border-color: #111 transparent transparent transparent;
+            -webkit-transform: rotate(360deg);
+        }
+
+        .hint {
+            position: absolute;
+            top: 0.6em;
+            width: 100%;
+            left: 0;
+            font-size: 2em;
+            font-style: italic;
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+        }
+
+        .arrow-wrap:hover .hint {
+            opacity: 1;
+        }
+
+        @-webkit-keyframes arrows {
+            0% { top: 0; }
+            10% { top: 12%; }
+            20% { top: 0; }
+            30% { top: 12%; }
+            40% { top: -12%; }
+            50% { top: 12%; }
+            60% { top: 0; }
+            70% { top: 12%; }
+            80% { top: -12%; }
+            90% { top: 12%; }
+            100% { top: 0; }
+        }
+
+        .arrow-wrap .arrow {
+            -webkit-animation: arrows 2.8s 0.4s;
+            -webkit-animation-delay: 3s;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        //this is where we apply opacity to the arrow
+        $(window).scroll(function() {
+            //get scroll position
+            var topWindow = $(window).scrollTop();
+            //multiply by 1.5 so the arrow will become transparent half-way up the page
+            var topWindow = topWindow * 1.5;
+            //get height of window
+            var windowHeight = $(window).height();
+            //set position as percentage of how far the user has scrolled
+            var position = topWindow / windowHeight;
+            //invert the percentage
+            position = 1 - position;
+            //define arrow opacity based on how far up the page the user has scrolled
+            //no scrolling = 1, half-way up the page = 0
+            $('.arrow-wrap').css('opacity', position);
+        });
+
+        $(function() {
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}<body>
+<div id="content-container">
+  <h1>Welcome, {{ current_user.name }}!</h1>
+  <a class="button" href="{{ url_for('main.form') }}">Create a new request</a>
+
+  <form action="{{ url_for('main.solve_route') }}" method="POST">
+    <button data-text="Awesome" class="button2">
+      <span class="actual-text">&nbsp;Results&nbsp;</span>
+    <span class="hover-text" aria-hidden="true">&nbsp;Results&nbsp;</span>
+    </button>
+  </form>
+</div>
+
+
+    <div id="image-container">
+        <img src="{{ url_for('static', filename='image12_2.png') }}">
+    </div>
+    <section class="main">
+        <a class="arrow-wrap" href="#content">
+            <span class="arrow"></span>
+        </a>
+
+        <div class="content" id="content">
+            <h1>The innovative hub for all your ride-sharing needs!</h1>
+            <p>Connect, Collaborate, and Commute! That's our mantra , a state-of-the-art platform that brings drivers, riders, and shifters together in a unique and impactful way. Our website is designed to revolutionize the way you travel, offering a simple, effective, and eco-friendly solution to modern commuting challenges.</p>
+            <p>Are you a driver planning a journey from point A to point B? Or perhaps you're a rider searching for a reliable transport option to your desired location? Maybe you're a shifter, able to switch between the roles of driver and rider as needed? Whichever you are, This is the place for you!</p>
+            <p>Our unique constraint model works tirelessly to find the perfect match for your travel needs. Simply enter your details, submit your request, and our algorithm will do the rest. The result? A list of potential ride matches displayed directly on your screen.</p>
+            <h2>Environment is at our heart. </h2>
+            <p>
+But we are more than just a ride-matching service. It's a community of environmentally-conscious individuals who understand that sharing a ride can make a world of difference. By choosing to share your commute, you're not only saving on fuel costs and reducing traffic congestion, but you're also playing a significant part in lowering carbon emissions.
+            </p>
+            <h3>We're driving change, together!</h3>
+        </div>
+    </section>
+</body>
+</html>

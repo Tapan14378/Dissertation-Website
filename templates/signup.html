@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signup.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+     <img id="car" src="{{ url_for('static', filename='image.png') }}">
+     <form id="signupForm" action="{{ url_for('auth.signup') }}" method="post">
+        <div id="nameField" class="inputField">
+            <label for="name">What's your name?</label>
+            <input type="text" id="name" name="name" class="animated-input">
+            <button type="button" class="next animated-button">&#8594;</button>
+        </div>
+        <div id="emailField" class="inputField">
+            <label for="email">What's your email?</label>
+            <input type="email" id="email" name="email" class="animated-input">
+            <button type="button" class="next animated-button">&#8594;</button>
+        </div>
+        <div id="passwordField" class="inputField">
+            <label for="password">What's your password?</label>
+            <input type="password" id="password" name="password" class="animated-input">
+            <button type="submit" class="next animated-button">&#8594;</button>
+            <input type="checkbox" id="showPassword"> Show Password
+        </div>
+    </form>
+    <script>
+        var loginUrl = "{{ url_for('auth.login') }}";
+    </script>
+     <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+</body>
+</html>

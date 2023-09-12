@@ -1,0 +1,62 @@
+#car {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    top: 50%;
+    left: -200px;
+    transform: translateY(-50%);
+}
+
+.inputField {
+    display: none;
+    margin-bottom: 20px;
+}
+
+#signupForm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.next {
+    display: none;
+    margin-left: 10px;
+}
+
+.animated-input {
+    transition: all 0.3s ease-in-out;
+}
+
+.animated-input:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.animated-button {
+    transition: all 0.3s ease-in-out;
+    border: none;
+    background: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.animated-button:hover {
+    transform: translateX(10px);
+}
+
+
+templete css
+
+<div class="wave-group">
+  <input required="" type="text" class="input">
+  <span class="bar"></span>
+  <label class="label">
+    <span class="label-char" style="--index: 0">N</span>
+    <span class="label-char" style="--index: 1">a</span>
+    <span class="label-char" style="--index: 2">m</span>
+    <span class="label-char" style="--index: 3">e</span>
+  </label>
+</div>
